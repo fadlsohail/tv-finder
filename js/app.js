@@ -25,10 +25,29 @@ searchForm.addEventListener("submit", function (event) {
                     poster = `<img class="w-full rounded mb-4 show-poster" src="${show.image.medium}" alt="${show.name} poster">`;
                 }
 
+                let genres = "Genre not listed";
+                let rating = "Not rated";
+                let premiered = "Premiere date not listed";
+
+                if (show.genres.length > 0) {
+                    genres = show.genres.join(", ");
+                }
+
+                if (show.rating.average) {
+                    rating = show.rating.average;
+                }
+
+                if (show.premiered) {
+                    premiered = show.premiered;
+                }
+
                 const showCard = `
                 <div class="bg-neutral-800 rounded border border-neutral-700 p-4">
                     ${poster}
                     <h3 class="text-xl font-semibold mb-2">${show.name}</h3>
+                    <p class="text-md text-neutral-300 mb-1"><strong>Genres:</strong> ${genres}</p>
+                    <p class="text-md text-neutral-300 mb-1"><strong>Rating:</strong> ${rating}</p>
+                    <p class="text-md text-neutral-300 mb-1"><strong>Premiered:</strong> ${premiered}</p>
                 </div>
             `;
             
