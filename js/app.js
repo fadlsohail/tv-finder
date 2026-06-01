@@ -28,6 +28,8 @@ searchForm.addEventListener("submit", function (event) {
                 let genres = "Genre not listed";
                 let rating = "Not rated";
                 let premiered = "Premiere date not listed";
+                let summary = "No summary is available.";
+                let showUrl = "https://www.tvmaze.com/";
 
                 if (show.genres.length > 0) {
                     genres = show.genres.join(", ");
@@ -41,6 +43,15 @@ searchForm.addEventListener("submit", function (event) {
                     premiered = show.premiered;
                 }
 
+
+                if (show.summary) {
+                    summary = show.summary;
+                }
+
+                if (show.url) {
+                    showUrl = show.url;
+                }
+
                 const showCard = `
                 <div class="bg-neutral-800 rounded border border-neutral-700 p-4">
                     ${poster}
@@ -48,6 +59,10 @@ searchForm.addEventListener("submit", function (event) {
                     <p class="text-md text-neutral-300 mb-1"><strong>Genres:</strong> ${genres}</p>
                     <p class="text-md text-neutral-300 mb-1"><strong>Rating:</strong> ${rating}</p>
                     <p class="text-md text-neutral-300 mb-1"><strong>Premiered:</strong> ${premiered}</p>
+                    <div class="text-neutral-200 mb-4">${summary}</div>
+                    <a target="_blank" href="${showUrl}" class="inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+                        View on TVMaze
+                    </a>
                 </div>
             `;
             
