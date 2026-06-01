@@ -1,0 +1,4 @@
+.show-poster {
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
