@@ -16,6 +16,11 @@ searchForm.addEventListener("submit", function (event) {
         .then(function (data) {
             resultList.innerHTML = "";
 
+            if (data.length === 0) {
+                statusMessage.textContent = "No shows found. Try another name.";
+                return;
+            }
+
             data.forEach(function (item) {
                 const show = item.show;
 
@@ -69,6 +74,9 @@ searchForm.addEventListener("submit", function (event) {
             resultList.insertAdjacentHTML("beforeend", showCard);
             });
 
-            statusMessage.textContent = "Results loaded.";
+            statusMessage.textContent = "Results found: " + data.length;
+        })
+        .catch(function () {
+            statusMessage.textContent = "Could not load the results. Please try again.";
         });
 });
