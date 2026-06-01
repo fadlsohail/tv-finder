@@ -19,7 +19,13 @@ searchForm.addEventListener("submit", function (event) {
             data.forEach(function (item) {
                 const show = item.show;
 
-                resultList.insertAdjacentHTML("beforeend", "<p>" + show.name + "</p>");
+                const showCard = `
+                <div class="bg-neutral-800 rounded border border-neutral-700 p-4">
+                    <h3 class="text-xl font-semibold mb-2">${show.name}</h3>
+                </div>
+            `;
+            
+            resultList.insertAdjacentHTML("beforeend", showCard);
             });
 
             statusMessage.textContent = "Results loaded.";
