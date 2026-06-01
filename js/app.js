@@ -6,7 +6,14 @@ const resultList = document.querySelector("#results");
 searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    const keyword = keywordInput.value;
+    const keyword = keywordInput.value.trim();
+
+    if (keyword === "") {
+        statusMessage.textContent = "Please enter a show name.";
+        resultList.innerHTML = "";
+        return;
+    }
+    
     const url = "https://api.tvmaze.com/search/shows?q=" + keyword;
 
     fetch(url)
