@@ -13,8 +13,8 @@ searchForm.addEventListener("submit", function (event) {
         resultList.innerHTML = "";
         return;
     }
-    
-    const url = "https://api.tvmaze.com/search/shows?q=" + keyword;
+
+    const url = "https://api.tvmaze.com/search/shows?q=" + encodeURIComponent(keyword);
 
     fetch(url)
         .then(function (response) {
