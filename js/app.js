@@ -6,6 +6,7 @@ searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const keyword = keywordInput.value;
+    const url = "https://api.tvmaze.com/search/shows?q=" + keyword;
 
-    statusMessage.textContent = "you searched for: " + keyword;
+    statusMessage.textContent = url;
 });
