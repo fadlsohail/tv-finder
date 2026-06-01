@@ -8,5 +8,12 @@ searchForm.addEventListener("submit", function (event) {
     const keyword = keywordInput.value;
     const url = "https://api.tvmaze.com/search/shows?q=" + keyword;
 
-    statusMessage.textContent = url;
+    fetch(url)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            statusMessage.textContent = "Data loaded. Check console";
+        });
 });
