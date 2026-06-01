@@ -1,6 +1,7 @@
 const searchForm = document.querySelector("#search-form");
 const keywordInput = document.querySelector("#keywords");
 const statusMessage = document.querySelector("#status-message");
+const resultList = document.querySelector("#results");
 
 searchForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -13,7 +14,14 @@ searchForm.addEventListener("submit", function (event) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
-            statusMessage.textContent = "Data loaded. Check console";
+            resultList.innerHTML = "";
+
+            data.forEach(function (item) {
+                const show = item.show;
+
+                resultList.insertAdjacentHTML("beforeend", "<p>" + show.name + "</p>");
+            });
+
+            statusMessage.textContent = "Results loaded.";
         });
 });
