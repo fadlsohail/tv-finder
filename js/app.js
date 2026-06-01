@@ -19,15 +19,15 @@ searchForm.addEventListener("submit", function (event) {
             data.forEach(function (item) {
                 const show = item.show;
 
-                let image = "";
+                let poster = `<div class="w-full rounded mb-4 bg-neutral-700 text-neutral-300 flex items-center justify-center show-poster">No image</div>`;
 
                 if (show.image) {
-                    image = show.image.medium;
+                    poster = `<img class="w-full rounded mb-4 show-poster" src="${show.image.medium}" alt="${show.name} poster">`;
                 }
 
                 const showCard = `
                 <div class="bg-neutral-800 rounded border border-neutral-700 p-4">
-                     <img class="w-full rounded mb-4 show-poster" src="${image}" alt="${show.name} poster">
+                    ${poster}
                     <h3 class="text-xl font-semibold mb-2">${show.name}</h3>
                 </div>
             `;
