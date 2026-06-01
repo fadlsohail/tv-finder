@@ -31,10 +31,10 @@ searchForm.addEventListener("submit", function (event) {
             data.forEach(function (item) {
                 const show = item.show;
 
-                let poster = `<div class="w-full rounded mb-4 bg-neutral-700 text-neutral-300 flex items-center justify-center show-poster">No image</div>`;
+                let poster = `<div class="w-full rounded-3xl mb-4 bg-neutral-700 text-neutral-300 flex items-center justify-center show-poster">No image</div>`;
 
                 if (show.image) {
-                    poster = `<img class="w-full rounded mb-4 show-poster" src="${show.image.medium}" alt="${show.name} poster">`;
+                    poster = `<img class="w-full rounded-3xl mb-4 show-poster" src="${show.image.medium}" alt="${show.name} poster">`;
                 }
 
                 let genres = "Genre not listed";
@@ -65,14 +65,14 @@ searchForm.addEventListener("submit", function (event) {
                 }
 
                 const showCard = `
-                <div class="bg-neutral-800 rounded border border-neutral-700 p-4">
+                <div class="bg-neutral-800 rounded-3xl border border-neutral-700 p-4 text-left">
                     ${poster}
                     <h3 class="text-xl font-semibold mb-2">${show.name}</h3>
                     <p class="text-md text-neutral-300 mb-1"><strong>Genres:</strong> ${genres}</p>
                     <p class="text-md text-neutral-300 mb-1"><strong>Rating:</strong> ${rating}</p>
                     <p class="text-md text-neutral-300 mb-1"><strong>Premiered:</strong> ${premiered}</p>
                     <div class="text-neutral-200 mb-4">${summary}</div>
-                    <a target="_blank" href="${showUrl}" class="inline-block bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+                    <a target="_blank" href="${showUrl}" class="inline-block bg-red-600 text-white px-4 py-2 rounded-3xl hover:bg-red-700">
                         View on TVMaze
                     </a>
                 </div>
